@@ -1,5 +1,6 @@
 package br.com.infnet;
 
+import Animals.Cat;
 import Animals.Dog;
 import enums.FurType;
 
@@ -13,6 +14,12 @@ public class App
                 "calmo",
                 FurType.MEDIUM,
                 "branco");
+        Cat newCat = new Cat(
+                "Mel",
+                8,
+                "calmo",
+                FurType.SHORT,
+                "Tricolor");
         System.out.println(newDog.getName());
     }
 }
