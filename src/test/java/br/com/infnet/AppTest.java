@@ -1,38 +1,44 @@
 package br.com.infnet;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+import Animals.Cat;
+import Animals.Dog;
+import enums.FurType;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+public class AppTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
+    @Test
+    @DisplayName("Create Class Animals")
+    public void createAnimals(){
+        LOGGER.info("Teste class animals");
+        Dog newDog = new Dog(
+                "Biscoito",
+                8,
+                "calmo",
+                FurType.MEDIUM,
+                "branco");
+        Cat newCat = new Cat(
+                "Mel",
+                8,
+                "calmo",
+                FurType.SHORT,
+                "Tricolor");
+
+        //Criadas corretamente
+        assertNotNull(newDog);
+        assertNotNull(newCat);
+
+        assertEquals("Biscoito", newDog.getName());
+        assertEquals(FurType.SHORT, newCat.getFur());
     }
+    @Test@DisplayName("Create Class Client")@Disabled("Not create")
+    public void createClient(){
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
     }
 }
